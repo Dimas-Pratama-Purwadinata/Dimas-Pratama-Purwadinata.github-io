@@ -35,7 +35,7 @@ include_once("init.php");
 </div>
 <div id="content">
     <div class="page-full-width cf">
-        <div class="side-menu fl">
+        <div class="side-menu fr">
             <h3>Stock Management</h3>
             <ul>
                 <li><a href="add_stock.php">Add Stock/Product</a></li>
@@ -99,7 +99,6 @@ include_once("init.php");
                                                class="round default-width-input"
                                                value="<?php echo $line->category; ?>"/></td>
                                 </tr>
-
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>Cost</td>
