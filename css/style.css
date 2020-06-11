@@ -1,18 +1,3 @@
-/**********************************************************************************
-
-        Project Name: SimpleAdmin CMS Theme
-        Project Description: A clean admin theme
-        File Name: style.css
-        Author: Adi Purdila
-        Author URI: http://www.adipurdila.com
-        Version: 1.0.0
-
-**********************************************************************************/
-
-/* ---------- RESET ---------- */
-/* ---------- Based upon 'reset.css' in the
-Yahoo! User Interface Library:
-http://developer.yahoo.com/yui ---------- */
 *, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4,
 h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td {
     margin: 0;
@@ -41,18 +26,13 @@ strong { font-weight: bold; }
 
 em { font-style: italic; }
 
-a img {	border: none; } /* Gets rid of IE's blue borders */
+a img {	border: none; } 
 
 a { text-decoration: none; }
 
-body { font-size: 1em; /* Prevents an IE bug where em's scale out of proportion */ }
+body { font-size: 1em;  }
 
 
-
-
-
-/* ---------- CLEARFIX ---------- */
-/* For modern browsers */
 .cf:before,
 .cf:after {
     content: "";
@@ -61,22 +41,16 @@ body { font-size: 1em; /* Prevents an IE bug where em's scale out of proportion 
 
 .cf:after { clear:both; }
 
-/* For IE 6/7 (trigger hasLayout) */
 .cf { zoom: 1; }
 
-
-
-
-
-/* ---------- GENERAL ---------- */
 .round {
-    border-radius: 0.3125em; /* 5/16 */
-    -moz-border-radius: 0.3125em; /* 5/16 */
-    -webkit-border-radius: 0.3125em; /* 5/16 */
+    border-radius: 0.3125em; 
+    -moz-border-radius: 0.3125em; 
+    -webkit-border-radius: 0.3125em; 
 }
 
 p {
-    margin-bottom: 1.25em; /* 20/16 */
+    margin-bottom: 1.25em; 
     color: #9498a1;
 }
 
@@ -91,14 +65,14 @@ p {
 
 div.stripe-separator {
     background: transparent url('../images/separator-bg.png') repeat-x left center;
-    height: 0.562em; /* 9/16 */
+    height: 0.562em;
     display: block;
-    margin: 1.25em 0; /* 20/16 */
+    margin: 1.25em 0; 
 }
 
-h1, h2, h3, h4, h5, h6 { margin-bottom: 0.625em; /* 10/16 */ }
+h1, h2, h3, h4, h5, h6 { margin-bottom: 0.625em;  }
 
-/*Temporary styles*/
+
 ul.temporary-button-showcase {
     list-style-type: none;
 }
@@ -134,7 +108,7 @@ cite {
     color: #9498a1;
 }
 
-/* ---------- TYPOGRAPHY ---------- */
+
 body, form {
     font-family: "Droid Sans", Helvetica, Arial, sans-serif;
     line-height: 1.125em; /* 18/16 */
@@ -160,7 +134,7 @@ h5 { font-size: 0.625em; /* 10/16 */ }
     color:#FF0000;
 }
 
-/* ---------- COLORS ---------- */
+
 a { color: #2069b4; }
 a:hover { color: #2a2e36; }
 
@@ -211,19 +185,16 @@ p a, p a:hover { border-bottom: 1px dotted; }
     width: 100%;
 }
 
-/* ---------- WIDTHS ---------- */
-/* Form Inputs Style */
-.default-width-input { width: 20.833em; /* Default Value. Equals 250px for the 12px font size */ }
+
+.default-width-input { width: 20.833em; }
 
 .full-width-input { width: 95%; }
 
-/* Textarea Style */
 .full-width-textarea {
     width: 95%;
     height: 8.5em; /* 150/12 */
 }
 
-/* Page Container Style */
 .page-full-width { padding: 0 1.875em; /* 30/16 */ }
 
 .page-limited {
@@ -231,11 +202,6 @@ p a, p a:hover { border-bottom: 1px dotted; }
     margin: 0 auto;
 }
 
-
-
-
-
-/* ---------- BUTTONS ---------- */
 .button {
     padding: 0.833em; /* 10/12 */
 
@@ -287,11 +253,6 @@ p a, p a:hover { border-bottom: 1px dotted; }
 .ic-table-edit { background-image: url("../images/icons/table/actions-edit.png"); }
 .ic-table-delete { background-image: url("../images/icons/table/actions-delete.png"); }
 
-
-
-
-
-/* ---------- MENU BUTTONS ---------- */
 .menu-email { background-image: url("../images/icons/menu/menu-email.png"); }
 .menu-email:hover { background-image: url("../images/icons/menu/menu-email-over.png"); }
 .menu-email-special {
@@ -308,9 +269,6 @@ p a, p a:hover { border-bottom: 1px dotted; }
 .menu-user { background-image: url("../images/icons/menu/menu-user.png"); }
 .menu-logo { background-image: url("../images/icons/menu/menu-logo.png") }
 
-
-
-/* ---------- FORMS ---------- */
 form label {
     display: block;
     text-transform: uppercase;
@@ -346,11 +304,10 @@ form input[type="submit"] {
 
 form#search-form input {
     border: none;
-    /* The inner text overflows on the BG image, so we're setting a right padding to stop that */
     padding-right: 3em; /* 36/12 */
 }
 form#search-form input:focus {
-    /* Same as .dark:hover */
+
     background-color: #5d6677;
     color: white;
 }
@@ -370,19 +327,14 @@ form p.form-error em {
 form input.error-input { border: 1px solid #ff876f; }
 form input.error-input:hover { border: 1px solid #b03e27; }
 
-/* Styling the HTML5 placeholders */
-/* So far they don't work in: IE, Opera 10 and below, Firefox 3.6 and below */
+
 ::-webkit-input-placeholder { color: #858d9c; }
 :-moz-placeholder { color: #858d9c; }
 
 
-
-
-
-/* ---------- CONTENT BOXES ---------- */
 .information-box, .confirmation-box, .error-box, .error-message, .warning-box {
-    padding: 0.833em 0.833em 0.833em 3em; /* 10/12 36/12 */
-    margin-bottom: 0.833em; /* 20/12 */
+    padding: 0.833em 0.833em 0.833em 3em; 
+    margin-bottom: 0.833em; 
 }
 
 .information-box {
@@ -413,21 +365,17 @@ form input.error-input:hover { border: 1px solid #b03e27; }
 }
 
 
-
-
-/* ---------- MENU ---------- */
 ul#nav {
     list-style-type: none;
 }
 
 ul#nav > li {
     float: left;
-    margin-right: 0.312em; /* 5/16 */
+    margin-right: 0.312em; 
     position: relative;
 }
 ul#nav li:first-child { margin-left: 0; }
-ul#nav li:hover ul { left: 0; /* On hover, we make the submenu visible again */ }
-/* Persistent hover state, exactly the same style as the inner anchor on hover (.dark:hover) */
+ul#nav li:hover ul { left: 0;  }
 ul#nav li:hover a {
     background-color: #5d6677;
     color: white;
@@ -466,11 +414,6 @@ ul#nav li ul li:last-child a {
 
 ul#nav li ul li a:hover { background-color: #7a8497; }
 
-
-
-
-
-/* ---------- TOP + HEADER ---------- */
 div#top-bar {
     background-color: #1b1b1b;
     padding: 0.625em 0; /* 10/16 */
@@ -491,10 +434,6 @@ a#company-branding img { height: 60px; }
 a#company-branding-small img { height: 60px; }
 
 
-
-
-
-/* ---------- TABS ---------- */
 ul#tabs { list-style-type: none; }
 
 ul#tabs li { float: left; }
@@ -502,7 +441,7 @@ ul#tabs li { float: left; }
 ul#tabs li a {
     border: 1px solid #eeefef;
     border-bottom: none;
-    padding: 1.666em 0.833em; /* 20/12 10/12 */
+    padding: 1.666em 0.833em; 
     margin: 0 0.416em -1px 0;
     display: block;
     color: #9498a1;
@@ -559,7 +498,6 @@ ul#tabs li .active-tab
 
 
 
-/* ---------- TABLES ---------- */
 table { width: 100%; margin-bottom: 1.25em; /* 20/16 */ }
 
 table th {
@@ -576,10 +514,8 @@ table tbody td {
     border-bottom: 1px solid #f8f9fa;
 }
 
-/* Alternate table row */
 table tbody tr:nth-child(odd) { background-color: #f8f9fa; }
 
-/* Push the first cell to the right so it doesn't stick to the table border */
 table td:first-child, table th:first-child {
     width: 4em /* 48/12 */;
     text-align: center;
@@ -608,8 +544,6 @@ a.table-actions-button {
     background-position: center center;
 }
 
-
-/* ---------- FORM TABLES ---------- */
 table.form { width: 400px; margin-bottom: 1.25em; /* 20/16 */ }
 
 table.form th {
@@ -627,7 +561,6 @@ table.form tbody td {
     font-weight:550;
 }
 
-/* Push the first cell to the right so it doesn't stick to the table border */
 table.form td:first-child, table th:first-child {
     width: 4em /* 48/12 */;
     text-align: left;
@@ -638,7 +571,7 @@ table.form td:first-child, table th:first-child {
 }
 
 table.form td:last-child, table th:last-child {
-    width: 7em; /* 84/12 */
+    width: 7em; 
     text-align: left;
     padding: 0;
     padding-left: 10px;
@@ -648,36 +581,29 @@ table.form td:last-child, table th:last-child {
 table.form td.table-footer {
     text-align: left;
     vertical-align: middle;
-    padding-top: 1.25em /* 15/12 */;
+    padding-top: 1.25em ;
     border: none;
 }
 
+ol li, .regular-ul li { margin-left: 1.25em; }
 
-
-
-/* ---------- LISTS ---------- */
-ol li, .regular-ul li { margin-left: 1.25em; /* 20/16 */ }
-
-ol, .regular-ul, .custom-ul { margin-bottom: 1.25em; /* 20/16 */ }
+ol, .regular-ul, .custom-ul { margin-bottom: 1.25em;}
 
 .custom-ul { list-style-type: none; }
 
 .custom-ul li {
     background: transparent url('../images/menu-dark-indicator.png') no-repeat left center;
-    padding-left: 1.25em /* 10/12 */;
+    padding-left: 1.25em;
 }
 
-
-
-/* ---------- CONTENT ---------- */
 div#content {
     background: #f8f9fa url('../images/artwork-pattern.png') repeat-x left bottom;
     border: 1px solid #eeefef;
-    padding: 1.875em 0; /* 30/16 */
+    padding: 1.875em 0; 
 }
 
 form#login-form {
-    width: 18.75em; /* 300/16 */
+    width: 18.75em;
     margin: 0 auto;
 }
 
@@ -691,14 +617,14 @@ div.side-menu {
 div.side-menu h3 {
     text-transform: uppercase;
     font-weight: bold;
-    margin:  1.25em; /* 15/12 */
+    margin:  1.25em; 
     color: white;
 }
 
 div.side-menu ul { list-style-type: none; }
 
 div.side-menu ul li a {
-    padding: 0.833em 1.25em; /* 10/12 15/12 */
+    padding: 0.833em 1.25em; 
     border-top: 1px solid #f8f9fa;
     display: block;
     background: white url('../images/menu-dark-indicator.png') no-repeat right center;
@@ -707,11 +633,11 @@ div.side-menu ul li a:hover {
     background-color: #f8f9fa;
 }
 
-div.side-content { width: 83%; /* 100% - 15% for the side menu - 2% for the left margin */ }
+div.side-content { width: 83%;  }
 
 div.content-module {
     background: white;
-    margin-bottom: 1em; /* 16/16 */
+    margin-bottom: 1em; 
     border: 1px solid #eeefef;
 }
 
@@ -724,25 +650,20 @@ div.content-module-heading h3 {
     text-transform: uppercase;
     color: white;
     font-weight: bold;
-    margin: 1.25em; /* 15/12 */
+    margin: 1.25em; 
 }
 
 div.content-module-heading span {
     color: #262626;
     text-transform: uppercase;
-    margin: 1.5em; /* 15/10 */
+    margin: 1.5em; 
 }
 
-div.content-module-main { padding: 1em; /* 16/16 */ }
+div.content-module-main { padding: 1em;  }
 
-
-
-
-
-/* ---------- FOOTER ---------- */
 div#footer {
     text-align: center;
-    padding: 1.875em 0; /* 30/16 */
+    padding: 1.875em 0; 
     width: 100%;
 }
 .my_with{
