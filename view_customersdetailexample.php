@@ -24,7 +24,6 @@ include_once "db.php";
             else
                 return false;
         }
-
         function confirmDeleteSubmit() {
             var agree = confirm("Are you sure you wish to Delete Seletec Record?");
             if (agree)
@@ -33,15 +32,12 @@ include_once "db.php";
             else
                 return false;
         }
-
-
         function checkAll() {
 
             var field = document.forms.deletefiles;
             for (i = 0; i < field.length; i++)
                 field[i].checked = true;
         }
-
         function uncheckAll() {
             var field = document.forms.deletefiles;
             for (i = 0; i < field.length; i++)
@@ -49,8 +45,6 @@ include_once "db.php";
         }
     </script>
     <script>
-
-
         $(document).ready(function () {
             $("#name").focus();
             $("#form1").validationEngine(),
@@ -59,7 +53,6 @@ include_once "db.php";
                     $('#form1').submit();
                     return false;
                 });
-
             jQuery(document).bind('keydown', 'Ctrl+r', function () {
                 $('#form1').reset();
                 return false;
@@ -119,12 +112,10 @@ include_once "db.php";
             margin-bottom: 0px;
             background-color: #FFFFFF;
         }
-
         * {
             padding: 0px;
             margin: 0px;
         }
-
         #vertmenu {
             font-family: Verdana, Arial, Helvetica, sans-serif;
             font-size: 100%;
@@ -132,7 +123,6 @@ include_once "db.php";
             padding: 0px;
             margin: 0px;
         }
-
         #vertmenu h1 {
             display: block;
             background-color: #FF9900;
@@ -143,19 +133,16 @@ include_once "db.php";
             margin: 0px;
             width: 159px;
         }
-
         #vertmenu ul {
             list-style: none;
             margin: 0px;
             padding: 0px;
             border: none;
         }
-
         #vertmenu ul li {
             margin: 0px;
             padding: 0px;
         }
-
         #vertmenu ul li a {
             font-size: 80%;
             display: block;
@@ -165,76 +152,44 @@ include_once "db.php";
             color: #666666;
             width: 160px;
         }
-
         #vertmenu ul li a:hover, #vertmenu ul li a:focus {
             color: #000000;
             background-color: #eeeeee;
         }
-
         .style1 {
             color: #000000
         }
-
         div.pagination {
-
             padding: 3px;
-
             margin: 3px;
-
         }
-
         div.pagination a {
-
             padding: 2px 5px 2px 5px;
-
             margin: 2px;
-
             border: 1px solid #AAAADD;
-
             text-decoration: none; /* no underline */
-
             color: #000099;
-
         }
-
         div.pagination a:hover, div.pagination a:active {
-
             border: 1px solid #000099;
-
             color: #000;
-
         }
-
         div.pagination span.current {
-
             padding: 2px 5px 2px 5px;
-
             margin: 2px;
-
             border: 1px solid #000099;
-
             font-weight: bold;
-
             background-color: #000099;
-
             color: #FFF;
-
         }
-
         div.pagination span.disabled {
-
             padding: 2px 5px 2px 5px;
-
             margin: 2px;
-
             border: 1px solid #EEE;
-
             color: #DDD;
-
         }
     </style>
 </head>
-
 <body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
@@ -251,9 +206,7 @@ include_once "db.php";
                                     <table width="960" border="0" cellpadding="0" cellspacing="0" bgcolor="#ECECEC">
                                         <tr>
                                             <td width="130" align="left" valign="top">
-
                                                 <br>
-
                                                 <strong>Welcome <font
                                                         color="#3399FF"><?php echo $_SESSION['username']; ?>
                                                         !</font></strong><br> <br>
@@ -373,243 +326,142 @@ include_once "db.php";
                                                         </td>
                                                     </tr>
                                                 </table>
-
                                                 <?php
-
-
                                                 $SQL = "SELECT * FROM  customer_details ORDER BY id DESC";
                                                 if (isset($_POST['Search']) AND trim($_POST['searchtxt']) != "") {
 
                                                     $SQL = "SELECT * FROM  customer_details WHERE customer_name LIKE '%" . $_POST['searchtxt'] . "%' OR customer_address LIKE '%" . $_POST['searchtxt'] . "%' OR customer_contact1 LIKE '%" . $_POST['searchtxt'] . "%' OR customer_contact2 LIKE '%" . $_POST['searchtxt'] . "%' ORDER BY id DESC";
                                                 }
-
                                                 $tbl_name = "customer_details";    
                                                 $adjacents = 3;
                                                 $query = "SELECT COUNT(*) as num FROM $tbl_name";
                                                 if (isset($_POST['Search']) AND trim($_POST['searchtxt']) != "") {
                                                     $query = "SELECT COUNT(*) as num FROM  customer_details WHERE customer_name LIKE '%" . $_POST['searchtxt'] . "%' OR customer_address LIKE '%" . $_POST['searchtxt'] . "%' OR customer_contact1 LIKE '%" . $_POST['searchtxt'] . "%' OR customer_contact2 LIKE '%" . $_POST['searchtxt'] . "%'";
                                                 }
-
                                                 $total_pages = mysqli_fetch_array(mysqli_query($db->connection, $query));
-
                                                 $total_pages = $total_pages['num'];
                                                 $targetpage = "view_customer_details.php";
                                                 $limit = 10;                                
                                                 if (isset($_GET['limit']))
                                                     $limit = $_GET['limit'];
                                                 $page = isset($_GET['page']) ? $_GET['page'] : 0;
-
                                                 if ($page)
                                                     $start = ($page - 1) * $limit;        
                                                 else
                                                     $start = 0;                               
                                                 $sql = "SELECT * FROM customer_details  ORDER BY id DESC LIMIT $start, $limit ";
                                                 if (isset($_POST['Search']) AND trim($_POST['searchtxt']) != "") {
-
                                                     $sql = "SELECT * FROM  customer_details WHERE customer_name LIKE '%" . $_POST['searchtxt'] . "%' OR customer_address LIKE '%" . $_POST['searchtxt'] . "%' OR customer_contact1 LIKE '%" . $_POST['searchtxt'] . "%' OR customer_contact2 LIKE '%" . $_POST['searchtxt'] . "%' ORDER BY id DESC  LIMIT $start, $limit";
                                                 }
-
                                                 $result = mysqli_query($db->connection, $sql);
-
                                                 if ($page == 0) $page = 1;              
                                                 $prev = $page - 1;                            
-
                                                 $next = $page + 1;                         
-
                                                 $lastpage = ceil($total_pages / $limit);      
                                                 $lpm1 = $lastpage - 1;                       
                                                 $pagination = "";
-
                                                 if ($lastpage > 1) {
-
                                                     $pagination .= "<div class=\"pagination\">";
-
                                                     if ($page > 1)
-
                                                         $pagination .= "<a href=\"$targetpage?page=$prev&limit=$limit\">� previous</a>";
-
                                                     else
-
                                                         $pagination .= "<span class=\"disabled\">� previous</span>";
-
                                                     if ($lastpage < 7 + ($adjacents * 2))    
                                                     {
-
                                                         for ($counter = 1; $counter <= $lastpage; $counter++) {
-
                                                             if ($counter == $page)
-
                                                                 $pagination .= "<span class=\"current\">$counter</span>";
-
                                                             else
-
                                                                 $pagination .= "<a href=\"$targetpage?page=$counter&limit=$limit\">$counter</a>";
-
                                                         }
-
                                                     } elseif ($lastpage > 5 + ($adjacents * 2))   
-
                                                     {
-
                                                         if ($page < 1 + ($adjacents * 2)) {
-
                                                             for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++) {
-
                                                                 if ($counter == $page)
-
                                                                     $pagination .= "<span class=\"current\">$counter</span>";
-
                                                                 else
-
                                                                     $pagination .= "<a href=\"$targetpage?page=$counter&limit=$limit\">$counter</a>";
-
                                                             }
-
                                                             $pagination .= "...";
-
                                                             $pagination .= "<a href=\"$targetpage?page=$lpm1&limit=$limit\">$lpm1</a>";
-
                                                             $pagination .= "<a href=\"$targetpage?page=$lastpage&limit=$limit\">$lastpage</a>";
-
                                                         } 
                                                         elseif ($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
-
                                                             $pagination .= "<a href=\"$targetpage?page=1&limit=$limit\">1</a>";
-
                                                             $pagination .= "<a href=\"$targetpage?page=2&limit=$limit\">2</a>";
-
                                                             $pagination .= "...";
-
                                                             for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
-
                                                                 if ($counter == $page)
-
                                                                     $pagination .= "<span class=\"current\">$counter</span>";
-
                                                                 else
-
                                                                     $pagination .= "<a href=\"$targetpage?page=$counter&limit=$limit\">$counter</a>";
-
                                                             }
-
                                                             $pagination .= "...";
-
                                                             $pagination .= "<a href=\"$targetpage?page=$lpm1&limit=$limit\">$lpm1</a>";
-
                                                             $pagination .= "<a href=\"$targetpage?page=$lastpage&limit=$limit\">$lastpage</a>";
-
                                                         } 
                                                         else {
-
                                                             $pagination .= "<a href=\"$targetpage?page=1&limit=$limit\">1</a>";
-
                                                             $pagination .= "<a href=\"$targetpage?page=2&limit=$limit\">2</a>";
-
                                                             $pagination .= "...";
-
                                                             for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
-
                                                                 if ($counter == $page)
-
                                                                     $pagination .= "<span class=\"current\">$counter</span>";
-
                                                                 else
-
                                                                     $pagination .= "<a href=\"$targetpage?page=$counter&limit=$limit\">$counter</a>";
-
                                                             }
-
                                                         }
-
                                                     }
-
                                                     if ($page < $counter - 1)
-
                                                         $pagination .= "<a href=\"$targetpage?page=$next&limit=$limit\">next �</a>";
-
                                                     else
-
                                                         $pagination .= "<span class=\"disabled\">next �</span>";
-
                                                     $pagination .= "</div>\n";
-
                                                 }
-
                                                 ?>
-
                                                 <form name="deletefiles" action="deleteselected.php" method="post">
                                                     <input name="table" type="hidden" value="customer_details">
                                                     <input name="return" type="hidden"
                                                            value="view_customer_details.php">
-
                                                     <table width="700" border="0" cellspacing="0" cellpadding="0">
-
                                                         <tr>
-
                                                             <td bgcolor="#0099FF">
                                                                 <div align="center"><strong><span class="style1">View Supplier Details </span></strong>
                                                                 </div>
                                                             </td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td>&nbsp;</td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td align="center">
                                                                 <table width="100%" border="0" cellspacing="0"
                                                                        cellpadding="0">
-
                                                                     <tr>
 
                                                                         <td width="100"><strong>Supplier Name </strong>
                                                                         </td>
-
                                                                         <td width="100"><strong>Supplier
                                                                                 Address</strong></td>
-
                                                                         <td width="100"><strong>Supplier
                                                                                 Contact1 </strong></td>
-
                                                                         <td width="100"><strong>Supplier Cotact
                                                                                 2 </strong></td>
                                                                         <td width="100"><strong>View/Edit</strong></td>
                                                                         <td width="100"><strong>Delete</strong></td>
                                                                         <td width="100"><strong>Select</strong></td>
-
                                                                     </tr>
-
-
                                                                     <?php
-
-
                                                                     while ($row = mysqli_fetch_array($result)) {
-
-
                                                                         $mysqldate = $row['date'];
-
                                                                         $phpdate = strtotime($mysqldate);
-
                                                                         $phpdate = date("d/m/Y", $phpdate);
-
-
                                                                         ?>
-
                                                                         <tr>
-
-
                                                                             <td width="100"><?php echo $row['customer_name']; ?></td>
-
                                                                             <td width="100"><?php echo $row['customer_address']; ?></td>
-
                                                                             <td width="100"><?php echo $row['customer_contact1']; ?></td>
-
-
                                                                             <td width="100"><?php echo $row['customer_contact2']; ?></td>
                                                                             <td width="100"><a
                                                                                     href="update_customer_details.php?sid=<?php echo $row['id']; ?>"><img
@@ -627,67 +479,36 @@ include_once "db.php";
                                                                                     type="checkbox"
                                                                                     value="<?php echo $row['id']; ?>"
                                                                                     name="checklist[]"/></td>
-
                                                                         </tr>
-
-
                                                                         <?php
-
-
                                                                     }
-
-
                                                                     ?>
-
-
                                                                 </table>
                                                             </td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td>&nbsp;</td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td align="center">&nbsp;</td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td align="center">
                                                                 <div
                                                                     style="margin-left:20px;"><?php echo $pagination; ?></div>
                                                             </td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td align="center">&nbsp;</td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td>&nbsp;</td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td align="center">&nbsp; </td>
-
                                                         </tr>
-
                                                         <tr>
-
                                                             <td>&nbsp;</td>
-
                                                         </tr>
                                                     </table>
                                                 </form>
