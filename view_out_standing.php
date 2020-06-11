@@ -35,7 +35,7 @@ include_once("init.php");
 </div>
 <div id="content">
     <div class="page-full-width cf">
-        <div class="side-menu fl">
+        <div class="side-menu fr">
           <h3>Data Pembayaran</h3>
           <ul>
               <li><a href="view_payments.php">Data Pemasukan</a></li>
@@ -95,7 +95,6 @@ include_once("init.php");
 
                                     $sql = "SELECT * FROM stock_entries WHERE stock_name LIKE '%" . $_POST['searchtxt'] . "%' AND type LIKE 'entry%' ORDER BY date desc LIMIT $start, $limit";
                                 }
-
                                 $result = mysqli_query($db->connection, $sql);
                                 if ($page == 0) $page = 1;
                                 $prev = $page - 1;
