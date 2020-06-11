@@ -41,7 +41,7 @@ include_once("init.php");
 </div>
 <div id="content">
     <div class="page-full-width cf">
-        <div class="side-menu fl">
+        <div class="side-menu fr">
             <h3>Purchase Management</h3>
             <ul>
                 <li><a href="add_purchase.php">Add Purchase</a></li>
@@ -58,11 +58,8 @@ include_once("init.php");
                 <div class="content-module-main cf">
                     <?php
                     if (isset($_POST['supplier']) and isset($_POST['stock_name'])) {
-
                         $autoid = mysqli_real_escape_string($db->connection, $_POST['id']);
-
                         $supplier = mysqli_real_escape_string($db->connection, $_POST['supplier']);
-
                         $address = mysqli_real_escape_string($db->connection, $_POST['address']);
                         $contact = mysqli_real_escape_string($db->connection, $_POST['contact']);
                         $count = $db->countOf("supplier_details", "supplier_name='$supplier'");
@@ -70,9 +67,7 @@ include_once("init.php");
                             $db->query("insert into supplier_details(supplier_name,supplier_address,supplier_contact1) values('$supplier','$address','$contact')");
                         }
                         $temp_balance = $db->queryUniqueValue("SELECT balance FROM supplier_details WHERE supplier_name='$supplier'");
-
                         $db->execute("UPDATE supplier_details SET balance='$temp_balance' WHERE supplier_name='$supplier'");
-
                         $mode = mysqli_real_escape_string($db->connection, $_POST['mode']);
                         $description = mysqli_real_escape_string($db->connection, $_POST['description']);
 
@@ -81,32 +76,23 @@ include_once("init.php");
                         $bratet = $_POST['cost'];
                         $sratet = $_POST['sell'];
                         $totalt = $_POST['total'];
-
                         $subtotal = mysqli_real_escape_string($db->connection, $_POST['subtotal']);
-
                         $username = $_SESSION['username'];
-
                         $i = 0;
                         $j = 1;
-
                         $selected_date = $_POST['date'];
                         $selected_date = strtotime($selected_date);
                         $mysqldate = date('Y-m-d H:i:s', $selected_date);
-
                         foreach ($namet as $name1) {
-
                             $quantity = $_POST['quantity'][$i];
                             $brate = $_POST['cost'][$i];
                             $srate = $_POST['sell'][$i];
                             $total = $_POST['total'][$i];
                             $sysid = $_POST['gu_id'][$i];
-
                             $count = $db->countOf("stock_avail", "name='$name1'");
-
                             $amount = $db->queryUniqueValue("SELECT quantity FROM stock_avail WHERE name='$name1'");
                             $oldquantity = $db->queryUniqueValue("SELECT quantity FROM stock_entries WHERE id='$sysid' ");
                             $amount1 = ($amount + $quantity) - $oldquantity;
-
                             $db->execute("UPDATE stock_avail SET quantity='$amount1' WHERE name='$name1'");
                             $db->query("UPDATE stock_entries SET stock_name='$name1', stock_supplier_name='$supplier', quantity='$quantity', company_price='$brate', selling_price='$srate', opening_stock='$amount', closing_stock='$amount1', date='$mysqldate', username='$username', type='entry', total='$total', mode='$mode', description='$description', subtotal='$subtotal' WHERE id='$sysid'");
                             $i++;
@@ -134,7 +120,6 @@ include_once("init.php");
                                 <td><input name="purchaseid" type="text" id="purchaseid" readonly="readonly" maxlength="200"
                                            class="round default-width-input" style="width:130px "
                                            value="<?php echo $line->stock_id; ?>"/></td>
-
                                 <td>Date:</td>
                                 <td><input name="date" id="test1" placeholder="" style="margin-left: 15px;" value="<?php echo $line->date; ?> "
                                            type="text" id="name" maxlength="200" class="round default-width-input"/>
@@ -145,13 +130,11 @@ include_once("init.php");
                                 <td><input name="supplier" placeholder="ENTER SUPPLIER" type="text" id="supplier"
                                            value="<?php echo $line->stock_supplier_name; ?> " maxlength="200"
                                            class="round default-width-input" style="width:130px "/></td>
-
                                 <td>Address:</td>
                                 <td><input name="address" placeholder="ENTER ADDRESS" type="text"
                                            value="<?php $quantity = $db->queryUniqueValue("SELECT supplier_address FROM supplier_details WHERE supplier_name='" . $line->stock_supplier_name . "'");
                                            echo $quantity; ?>" id="address" maxlength="200"
                                            class="round default-width-input"/></td>
-
                                 <td>contact:</td>
                                 <td><input name="contact" placeholder="ENTER CONTACT" type="text"
                                            value="<?php $quantity = $db->queryUniqueValue("SELECT supplier_contact1 FROM supplier_details WHERE supplier_name='" . $line->stock_supplier_name . "'");
@@ -211,13 +194,11 @@ include_once("init.php");
                                 <?php
                                 $sid = $line->stock_id;
                                 $max = $db->maxOf("count1", "stock_entries", "stock_id='$sid'");
-
                                 for ($i = 1; $i <= $max; $i++) {
                                     $line1 = $db->queryUniqueObject("SELECT * FROM stock_entries WHERE stock_id='$sid' and count1=$i");
 
                                     $item = $db->queryUniqueValue("SELECT stock_id FROM stock_details WHERE stock_name='" . $line1->stock_name . "'");
                                     ?>
-
                                     <tr>
                                         <td><input name="stock_name[]" type="text" id="<?php echo $item . "st" ?>"
                                                    maxlength="30" style="width: 238px" readonly="readonly"
