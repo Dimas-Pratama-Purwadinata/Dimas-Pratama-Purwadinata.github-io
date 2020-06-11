@@ -71,7 +71,6 @@ include_once("init.php");
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
-
                             <form action="purchase_report.php" method="post" name="purchase_report" target="_blank">
                                 <tr>
                                     <td><strong>Rekap Pembelian </strong></td>
