@@ -37,7 +37,7 @@ include_once("init.php");
         </div>
         <div id="content">
             <div class="page-full-width cf">
-                <div class="side-menu fl">
+                <div class="side-menu fr">
                     <h3>Stock Management</h3>
                     <ul>
                         <li><a href="add_stock.php">Tambah Bibit Tanaman</a></li>
@@ -134,9 +134,7 @@ include_once("init.php");
                                                             $pagination .= "<a href=\"view_product.php?page=$counter&limit=$limit\" class=my_pagination>$counter</a>";
                                                     }
                                                     $pagination .= "...";
-
                                                     $pagination .= "<a href=\"view_product.php?page=$lpm1&limit=$limit\" class=my_pagination>$lpm1</a>";
-
                                                     $pagination .= "<a href=\"view_product.php?page=$lastpage&limit=$limit\" class=my_pagination>$lastpage</a>";
                                                 }
                                                 elseif ($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
@@ -190,14 +188,10 @@ include_once("init.php");
                                         while ($r = mysqli_fetch_array($s)) {
                                             $co++;
                                         }
-
                                         $i = 1;
                                         $no = $page - 1;
                                         $no = $no * $limit;
-
-
                                         while ($row = mysqli_fetch_array($result)) {
-
                                             $co1++;
                                             ?>
                                             <tr>
@@ -210,7 +204,6 @@ include_once("init.php");
                                                     $quantity = $db->queryUniqueValue("SELECT quantity FROM stock_avail WHERE name='" . $row['name'] . "'");
                                                     echo $quantity;
                                                     ?></td>
-
                                                 <td>&nbsp;</td>
                                                 <td>&nbsp;</td>
                                             </tr>
@@ -228,6 +221,6 @@ include_once("init.php");
                                 </form>
                         </div>
                     </div>
-                <?php include_once("tpl/footer.php"); ?>
-                </body>
+            <?php include_once("tpl/footer.php"); ?>
+            </body>
             </html>
