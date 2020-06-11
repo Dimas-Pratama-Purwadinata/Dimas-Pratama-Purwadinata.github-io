@@ -1,18 +1,9 @@
-/**********************************
-
-Use: Reset Styles for all browsers
-
-***********************************/
-	
 body, p, blockquote {
 	margin: 0;
 	padding: 0;
 }
 
 a img, iframe { border: none; }
-	
-/* Headers
-------------------------------*/
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -20,24 +11,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 100%;
 }
 	
-/* Lists
-------------------------------*/
 	
 ul, ol, dl, li, dt, dd {
 	margin: 0;
 	padding: 0;
 }
-	
-/* Links
-------------------------------*/
 
 a, a:link {}
 a:visited {}
 a:hover {}
 a:active {}
-
-/* Forms
-------------------------------*/
 
 form, fieldset {
 	margin: 0;
