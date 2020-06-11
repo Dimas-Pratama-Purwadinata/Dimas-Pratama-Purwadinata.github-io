@@ -36,7 +36,7 @@ include_once("init.php");
 </div>
 <div id="content">
     <div class="page-full-width cf">
-        <div class="side-menu fl">
+        <div class="side-menu fr">
             <h3>Supplier Management</h3>
             <ul>
                 <li><a href="add_supplier.php">Add Supplier</a></li>
@@ -68,7 +68,6 @@ include_once("init.php");
                                 else
                                     echo "<br><font color=red size=+1 >Problem in Updation !</font>";
                             }
-
                             ?>
                             <?php
                             if (isset($_GET['sid']))
@@ -101,7 +100,6 @@ include_once("init.php");
                                                class="round default-width-input"onkeypress="return numbersonly(event)"
                                                value="<?php echo $line->supplier_contact2; ?>"/></td>
                                 </tr>
-
                                 <tr>
                                     <td>
                                         &nbsp;
