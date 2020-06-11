@@ -2,7 +2,6 @@
 include_once("init.php");
 ?>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -32,7 +31,7 @@ include_once("init.php");
 </div>
 <div id="content">
     <div class="page-full-width cf">
-        <div class="side-menu fl">
+        <div class="side-menu fr">
             <h3>Kelola Data Penjualan</h3>
             <ul>
                 <li><a href="add_sales.php">Tambah Penjualan</a></li>
@@ -76,7 +75,6 @@ include_once("init.php");
                                 <?php
                                 $SQL = "SELECT DISTINCT(transactionid) FROM  stock_sales ORDER BY id DESC ";
                                 if (isset($_POST['Search']) AND trim($_POST['searchtxt']) != "") {
-
                                     $SQL = "SELECT DISTINCT(transactionid) FROM  stock_sales WHERE stock_name LIKE '%" . $_POST['searchtxt'] . "%' ORDER BY id DESC ";
                                 }
                                 $tbl_name = "stock_sales";
@@ -229,6 +227,6 @@ include_once("init.php");
             </div>
         </div>
   </div>
-	<?php include_once("tpl/footer.php"); ?>
+<?php include_once("tpl/footer.php"); ?>
 </body>
 </html>
