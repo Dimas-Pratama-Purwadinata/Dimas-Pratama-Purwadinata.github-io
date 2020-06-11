@@ -10,7 +10,6 @@ include_once("init.php");
         <link rel="stylesheet" href="js/date_pic/date_input.css">
         <link rel="stylesheet" href="lib/auto/css/jquery.autocomplete.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
         <?php include_once("tpl/common_js.php"); ?>
         <script src="js/date_pic/jquery.date_input.js"></script>
         <script src="lib/auto/js/jquery.autocomplete.js "></script>
@@ -18,7 +17,6 @@ include_once("init.php");
         <script src="js/update_sales.js"></script>
     </head>
     <body>
-    
     <?php include_once("tpl/top_bar.php"); ?>
         <div id="header-with-tabs">
             <div class="page-full-width cf">
@@ -39,12 +37,11 @@ include_once("init.php");
             echo "upload/posnic.png";
         }
     ?>" alt="Point of Sale"/></a>
-
             </div>
         </div>
         <div id="content">
             <div class="page-full-width cf">
-                <div class="side-menu fl">
+                <div class="side-menu fr">
                     <h3>Sales Management</h3>
                     <ul>
                         <li><a href="add_sales.php">Add Sales</a></li>
@@ -120,14 +117,12 @@ include_once("init.php");
                                     } else {
                                         echo "<br><font color=green size=+1 >There is no enough stock deliver for $name1! Please add stock !</font>";
                                     }
-
                                     $i++;
                                 }
                                 $trans_id = trim($_POST['stockid']);
                                 echo "<div style='background-color:yellow;'><br><font color=green size=+1 >Sales Updated ! Transaction ID [" . $_POST['stockid'] . "] !</font></div> ";
                                 echo "<script>window.open('add_sales_print.php?sid=$trans_id','myNewWinsr','width=620,height=800,toolbar=0,menubar=no,status=no,resizable=yes,location=no,directories=no');</script>";
                             }
-
                             ?>
                             <?php
                             if (isset($_GET['sid']))
@@ -138,7 +133,6 @@ include_once("init.php");
                             <form name="form1" method="post" id="form1" action="">
                                 <input type="hidden" id="posnic_total">
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
-
                                 <table class="form" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                             <?php
@@ -150,7 +144,6 @@ include_once("init.php");
                                         <td><input name="stockid" type="text" id="stockid" readonly="readonly" maxlength="200"
                                                    class="round default-width-input" style="width:130px "
                                                    value="<?php echo $line->transactionid; ?>"/></td>
-
                                         <td>Date:</td>
                                         <td><input name="date" id="test1" placeholder="" value="<?php echo $line->date; ?> "
                                                    style="margin-left: 15px;" type="text" id="name" maxlength="200" class="round default-width-input"/>
@@ -161,7 +154,6 @@ include_once("init.php");
                                         <td><input name="supplier" placeholder="ENTER SUPPLIER" type="text" id="supplier"
                                                    value="<?php echo $line->customer_id; ?> " maxlength="200"
                                                    class="round default-width-input" style="width:130px "/></td>
-
                                         <td>Address:</td>
                                         <td><input name="address" placeholder="ENTER ADDRESS" type="text"
                                                    value="<?php $quantity = $db->queryUniqueValue("SELECT customer_address FROM customer_details WHERE customer_name='" . $line->customer_id . "'");
@@ -192,7 +184,6 @@ include_once("init.php");
                                         <td>Selling</td>
                                         <td>Available Stock</td>
                                         <td>Total</td>
-
                                         <td> &nbsp;</td>
                                         <td> &nbsp;</td>
                                         <td> &nbsp;</td>
@@ -205,22 +196,16 @@ include_once("init.php");
                                 </table>
                                 <table class="form" id="display" style="display:none">
                                     <tr>
-
                                         <td><input name="" type="text" id="item" maxlength="200" class="round my_with "
                                                    style="width: 150px"
                                                    value="<?php echo isset($supplier) ? $supplier : ''; ?>"/></td>
-
                                         <td><input name="" type="text" id="quty" maxlength="200" class="round  my_with"
                                                    onKeyPress="quantity_chnage(event);return numbersonly(event)"
                                                    onkeyup="stock_size();total_amount();unique_check();"
                                                    value="<?php echo isset($category) ? $category : ''; ?>"/></td>
-
-
                                         <td><input name="" type="text" id="sell" readonly="readonly" maxlength="200"
                                                    class="round  my_with"
                                                    value="<?php echo isset($category) ? $category : ''; ?>"/></td>
-
-
                                         <td><input name="" type="text" id="stock" readonly="readonly" maxlength="200"
                                                    class="round  my_with"
                                                    value="<?php echo isset($category) ? $category : ''; ?>"/></td>
@@ -238,34 +223,24 @@ include_once("init.php");
                                 </table>
                                 <input type="hidden" id="guid">
                                 <input type="hidden" id="edit_guid">
-
-
                                 <div style="overflow:auto ;max-height:300px;  ">
                                     <table class="form" id="item_copy_final">
-
         <?php
             $sid = $line->transactionid;
             $max = $db->maxOf("count1", "stock_sales", "transactionid ='$sid'");
-
             for ($i = 1; $i <= $max; $i++) {
                 $line1 = $db->queryUniqueObject("SELECT * FROM stock_sales WHERE transactionid ='$sid' and count1=$i");
-
                 $item = $db->queryUniqueValue("SELECT transactionid  FROM stock_sales WHERE stock_name='" . $line1->stock_name . "'");
         ?>
-
                                             <tr>
-
                                                 <td><input name="stock_name[]" type="text" id="<?php echo $item . "st" ?>"
                                                            maxlength="20" style="width: 150px" readonly="readonly"
                                                            class="round "
                                                            value="<?php echo $line1->stock_name; ?>"/></td>
-
                                                 <td><input name="quantity[]" type="text" id="<?php echo $item . "q" ?>"
                                                            maxlength="20" class="round my_with"
                                                            value="<?php echo $line1->quantity; ?>" readonly="readonly"
                                                            onkeypress="return numbersonly(event)"/></td>
-
-
                                                 <td><input type="hidden" name="s_id[]" value="<?php echo $line1->id; ?>"> <input
                                                         name="sell[]" type="text" id="<?php echo $item . "s" ?>" maxlength="20"
                                                         readonly="readonly" class="round my_with"
@@ -276,7 +251,6 @@ include_once("init.php");
                                                            value="<?php $quantity = $db->queryUniqueValue("SELECT quantity FROM stock_avail WHERE name='" . $line1->stock_name . "'");
                                         echo $quantity;
                                         ?>"/></td>
-
                                                 <td><input name="total[]" type="text" id="<?php echo $item . "to" ?>"
                                                            readonly="readonly" maxlength="20"
                                                            style="margin-left:20px;width: 120px" class="round "
@@ -309,7 +283,6 @@ include_once("init.php");
                                                              onkeypress="return numbersonly(event);" name="discount"
                                                              id="discount">
                                         </td>
-
                                         <td>Discount Amount:<input type="text" readonly="readonly"
                                                                    value="<?php echo $line->dis_amount; ?>"
                                                                    onkeypress="return numbersonly(event);"
