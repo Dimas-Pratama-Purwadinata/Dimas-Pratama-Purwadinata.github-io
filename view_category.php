@@ -31,7 +31,7 @@ include_once("init.php");
         </div>
         <div id="content">
             <div class="page-full-width cf">
-                <div class="side-menu fl">
+                <div class="side-menu fr">
                   <h3>Kelola Data Produk</h3>
                   <ul>
                       <li><a href="add_stock.php">Tambah Bibit Tanaman</a></li>
@@ -62,9 +62,7 @@ include_once("init.php");
                                     <input name="go" type="button" value="pergi" class=" round blue my_button  text-upper"
                                            onclick="return confirmLimitSubmit()">
                                 </form>
-
                                 <form name="deletefiles" action="delete.php" method="post">
-
                                     <input type="hidden" name="table" value="category_details">
                                     <input type="hidden" name="return" value="view_category.php">
                                     <input type="button" name="selectall" value="pilih semua"
@@ -83,16 +81,12 @@ include_once("init.php");
 
                                             $SQL = "SELECT * FROM  category_details WHERE category_name LIKE '%" . $_POST['searchtxt'] . "%' ORDER BY id DESC ";
                                         }
-
                                         $tbl_name = "category_details";
                                         $adjacents = 3;
                                         $query = "SELECT COUNT(*) as num FROM $tbl_name";
                                         if (isset($_POST['Search']) AND trim($_POST['searchtxt']) != "") {
-
                                             $query = "SELECT COUNT(*) as num FROM  category_details WHERE category_name LIKE '%" . $_POST['searchtxt'] . "%' ";
                                         }
-
-
                                         $total_pages = mysqli_fetch_array(mysqli_query($db->connection, $query));
 
                                         $total_pages = $total_pages['num'];
@@ -143,40 +137,28 @@ include_once("init.php");
                                                             $pagination .= "<a href=\"view_category.php?page=$counter&limit=$limit\" class=my_pagination>$counter</a>";
                                                     }
                                                     $pagination .= "...";
-
                                                     $pagination .= "<a href=\"view_category.php?page=$lpm1&limit=$limit\" class=my_pagination>$lpm1</a>";
-
                                                     $pagination .= "<a href=\"view_category.php?page=$lastpage&limit=$limit\" class=my_pagination>$lastpage</a>";
                                                 }
                                                 elseif ($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
                                                     $pagination .= "<a href=\"view_category.php?page=1&limit=$limit\" class=my_pagination>1</a>";
                                                     $pagination .= "<a href=\"view_category.php?page=2&limit=$limit\" class=my_pagination>2</a>";
                                                     $pagination .= "...";
-
                                                     for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
-
                                                         if ($counter == $page)
                                                             $pagination .= "<span  class=my_pagination>$counter</span>";
                                                         else
                                                             $pagination .= "<a href=\"view_category.php?page=$counter&limit=$limit\" class=my_pagination>$counter</a>";
                                                     }
-
                                                     $pagination .= "...";
-
                                                     $pagination .= "<a href=\"view_category.php?page=$lpm1&limit=$limit\" class=my_pagination>$lpm1</a>";
-
                                                     $pagination .= "<a href=\"view_category.php?page=$lastpage&limit=$limit\" class=my_pagination>$lastpage</a>";
                                                 }
                                                 else {
-
                                                     $pagination .= "<a href=\"$view_category.php?page=1&limit=$limit\" class=my_pagination>1</a>";
-
                                                     $pagination .= "<a href=\"$view_category.php?page=2&limit=$limit\" class=my_pagination>2</a>";
-
                                                     $pagination .= "...";
-
                                                     for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
-
                                                         if ($counter == $page)
                                                             $pagination .= "<span class=my_pagination >$counter</span>";
                                                         else
@@ -188,7 +170,6 @@ include_once("init.php");
                                                 $pagination .= "<a href=\"view_category.php?page=$next&limit=$limit\" class=my_pagination>Next</a>";
                                             else
                                                 $pagination .= "<span class= my_pagination >Next</span>";
-
                                             $pagination .= "</div>\n";
                                         }
                                         ?>
@@ -200,7 +181,6 @@ include_once("init.php");
                                             <th>Edit / hapus</th>
                                             <th>pilih</th>
                                         </tr>
-
                                         <?php
                                         $co = 0;
                                         $co1 = 0;
@@ -208,22 +188,16 @@ include_once("init.php");
                                         while ($r = mysqli_fetch_array($s)) {
                                             $co++;
                                         }
-
                                         $i = 1;
                                         $no = $page - 1;
                                         $no = $no * $limit;
-
-
                                         while ($row = mysqli_fetch_array($result)) {
-
                                             $co1++;
                                             ?>
                                             <tr>
                                                 <td> <?php echo $no + $i; ?></td>
-
                                                 <td><?php echo $row['category_name']; ?></td>
                                                 <td> <?php echo $row['category_description']; ?></td>
-
                                                 <td>
                                                     <a href="update_category.php?sid=<?php echo $row['id']; ?>&table=category_details&return=view_category.php"
                                                        class="table-actions-button ic-table-edit">
@@ -234,7 +208,6 @@ include_once("init.php");
                                                 </td>
                                                 <td><input type="checkbox" value="<?php echo $row['id']; ?>" name="checklist[]"
                                                            id="check_box"/></td>
-
                                             </tr>
     <?php $i++;}?>
                                         <table>
