@@ -50,7 +50,7 @@ include_once("init.php");
                 <div class="side-content fr">
                     <div class="content-module">
                         <div class="content-module-heading cf">
-                            <h3 class="fl">Stock/Product</h3>
+                            <h3 class="fl">Stok/Produk</h3>
                             <span class="fr expand-collapse-text">Click to collapse</span>
                             <span class="fr expand-collapse-text initial-expand">Click to expand</span>
                         </div>
@@ -174,9 +174,9 @@ include_once("init.php");
                                         <tr>
                                             <td>&nbsp;</td>
                                             <th>No</th>
-                                            <th>Stock Name</th>
+                                            <th>Nama Stok</th>
 
-                                            <th>Stock</th>
+                                            <th>Stok</th>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -214,7 +214,7 @@ include_once("init.php");
                                         <table>
                                             <tr>
                                                 <td align='right'style="width:20%"><?php $end = $no + $co1; ?>
-                                                    Showing <?php echo $no + 1; ?> to <?php echo $end; ?> of <?php echo $co; ?> entries</td><td >&nbsp;</td><td><?php echo $pagination; ?></td>
+                                                    Menampilkan <?php echo $no + 1; ?> sampai <?php echo $end; ?> dari <?php echo $co; ?> halaman</td><td >&nbsp;</td><td><?php echo $pagination; ?></td>
                                             </tr>
                                         </table> 
                                     </table>
