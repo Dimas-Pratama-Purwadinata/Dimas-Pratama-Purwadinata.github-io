@@ -159,12 +159,12 @@ include_once("init.php");?>
                                            value="<?php echo $autoid_new ?>"/></td>
                                 <?php }?>
                                 <?php if($str != ''){?>
-                                <td>Bill no:</td>
+                                <td>Kode Penjualan:</td>
                                 <td><input name="stockid" type="text" id="stockid" readonly="readonly" maxlength="200"
                                            class="round default-width-input" style="width:130px "
                                            value="<?php echo $autoid ?>"/></td>
                                 <?php }?>
-                                <td>Date:</td>
+                                <td>Tanggal:</td>
                                 <td><input name="date" id="test1" placeholder="" value="<?php date_default_timezone_set("Asia/Kolkata");echo date('Y-m-d H:i:s');?>"
                                 style="margin-left: 15px;"type="text" id="name" maxlength="200" class="round default-width-input"/>
                                 </td>
@@ -215,8 +215,8 @@ include_once("init.php");?>
                                 <td>Mode &nbsp;</td>
                                 <td>
                                     <select name="mode">
-                                        <option value="cash">Cash</option>
-                                        <option value="cheque">Cheque</option>
+                                        <option value="cash">Kontan</option>
+                                        <option value="cheque">Tranfer</option>
                                     </select>
                                 </td>
                                 <td> &nbsp;</td>
