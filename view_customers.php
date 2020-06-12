@@ -208,10 +208,11 @@ include_once("init.php");
                                 </table>
                             </table>
                         </form>
+                    </div>
                 </div>
-            </div>
           </div>
     </div>
-      <?php include_once("tpl/footer.php"); ?>
+</div>	    
+<?php include_once("tpl/footer.php"); ?>
 </body>
 </html>
