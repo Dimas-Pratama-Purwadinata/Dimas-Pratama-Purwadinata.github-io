@@ -188,12 +188,12 @@ include_once("init.php");?>
                                 </table>
                                 <table class="form"  style="width: inherit; transform: translate(157px, 10px);">
                                     <tr>
-                                        <td>Mode &nbsp;</td>
+                                        <td>Metode Pembayaran &nbsp;</td>
                                         <td>
                                             <select name="mode">
-                                                <option value="cash">Cash</option>
-                                                <option value="cheque">Cheque</option>
-                                                <option value="other">Other</option>
+                                                <option value="cash">Kontan</option>
+                                                <option value="cheque">Transfer</option>
+                                                <option value="other">Lainnya</option>
                                             </select>
                                         </td>
                                         <td>keterangan</td>
