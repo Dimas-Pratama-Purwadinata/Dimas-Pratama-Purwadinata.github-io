@@ -113,6 +113,7 @@ include_once("init.php");
             </div>
         </div>
     </div>
+</div>
 <?php include_once("tpl/footer.php"); ?>
 </body>
 </html>
