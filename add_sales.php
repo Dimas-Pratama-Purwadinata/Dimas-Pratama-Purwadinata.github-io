@@ -159,7 +159,7 @@ include_once("init.php");?>
                                            value="<?php echo $autoid_new ?>"/></td>
                                 <?php }?>
                                 <?php if($str != ''){?>
-                                <td>Kode Penjualan:</td>
+                                <td>IDPenjualan:</td>
                                 <td><input name="stockid" type="text" id="stockid" readonly="readonly" maxlength="200"
                                            class="round default-width-input" style="width:130px "
                                            value="<?php echo $autoid ?>"/></td>
