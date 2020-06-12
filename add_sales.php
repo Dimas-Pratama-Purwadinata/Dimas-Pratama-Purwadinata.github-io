@@ -212,7 +212,7 @@ include_once("init.php");?>
                         </table>
                         <table class="form" style="width: inherit;">
                             <tr>
-                                <td>Mode &nbsp;</td>
+                                <td>Metode Pembayaran &nbsp;</td>
                                 <td>
                                     <select name="mode">
                                         <option value="cash">Kontan</option>
