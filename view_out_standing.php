@@ -165,10 +165,10 @@ include_once("init.php");
                                 ?>
                                 <tr>
                                     <th>No</th>
-                                    <th>Stock ID</th>
-                                    <th>Supplier</th>
-                                    <th>Total</th>
-                                    <th>Payment</th>
+                                    <th>ID STOK</th>
+                                    <th>Pemasok</th>
+                                    <th>Nama Pemasok</th>
+                                    <th>Total Pembayaran</th>
                                 </tr>
                                 <?php $i = 1;
                                 $no = $page - 1;
